@@ -30,3 +30,6 @@ gulp.task('watch', function() {
 	gulp.watch('site/js/*.js', ['jshint']);
 	gulp.watch('site/scss/*.scss', ['sass']);
 });
+
+//Default task
+gulp.task('default', ['jshint', 'sass', 'watch']);
