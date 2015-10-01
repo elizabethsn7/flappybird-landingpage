@@ -40,3 +40,18 @@ gulp.task('html', function() {
 	.pipe(minifyHTML())
 	.pipe(gulp.dest('build/'));
 });
+
+//JavaScript build task, removes whiteaspace and concatenates all files
+gulp.task('scripts', function(){
+	return browserify('./site/js/main.js').
+	.bundle()
+		.pipe(source('spp.js'))
+		.pipe(buffer())
+		.pipe(uglify())
+		.pipe(gulp.dest('build/js'));
+});
+
+
+
+
+
