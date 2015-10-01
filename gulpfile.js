@@ -11,34 +11,34 @@ var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
-//JavaScript linting task
+// JavaScript linting task
 gulp.task('jshint', function() {
-	return gulp.src('site/js/*.js')
-	.pipe(jshint())
-	.pipe(jshint.reporter('default'));
+  return gulp.src('site/js/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
-//Compile Sass task
+// Compile Sass task
 gulp.task('sass', function() {
-	return gulp.src('site/scss/*.scss')
-	.pipe(sass())
-	.pipe(gulp.dest('site/css'));
+  return gulp.src('site/scss/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('site/css'));
 });
 
-//Watch task
+// Watch task
 gulp.task('watch', function() {
-	gulp.watch('site/js/*.js', ['jshint']);
-	gulp.watch('site/scss/*.scss', ['sass']);
+  gulp.watch('site/js/*.js', ['jshint']);
+  gulp.watch('site/scss/*.scss', ['sass']);
 });
 
 //Default task
 gulp.task('default', ['jshint', 'sass', 'watch']);
 
-//Minify index
+// Minify index
 gulp.task('html', function() {
-	gulp.src('site/index.html')
-	.pipe(minifyHTML())
-	.pipe(gulp.dest('build/'));
+  gulp.src('site/index.html')
+    .pipe(minifyHTML())
+    .pipe(gulp.dest('build/'));
 });
 
 // JavaScript build task, removes whitespace and concatenates all files
