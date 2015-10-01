@@ -58,6 +58,13 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('build/css'));
 });
 
+//Image optimization task
+gulp.task('images', function() {
+  gulp.src('site/img/*')
+  .pipe(imagemin())
+  .pipe(gulp.dest('build/img'));
+});
+
 
 
 
