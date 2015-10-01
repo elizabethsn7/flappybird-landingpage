@@ -51,6 +51,13 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('build/js'));
 });
 
+//Styles build task, concatenates all the files
+gulp.task('styles', function() {
+  gulp.src('site/css/*.css')
+    .pipe(concat('styles.css'))
+    .pipe(gulp.dest('build/css'));
+});
+
 
 
 
