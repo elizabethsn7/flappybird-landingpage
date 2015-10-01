@@ -33,3 +33,10 @@ gulp.task('watch', function() {
 
 //Default task
 gulp.task('default', ['jshint', 'sass', 'watch']);
+
+//Minify index
+gulp.task('html', function() {
+	gulp.src('site/index.html')
+	.pipe(minifyHTML())
+	.pipe(gulp.dest('build/'));
+});
