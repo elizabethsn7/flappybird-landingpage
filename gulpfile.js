@@ -17,3 +17,10 @@ gulp.task('jshint', function() {
 	.pipe(jshint())
 	.pipe(jshint.reporter('default'));
 });
+
+//Compile Sass task
+gulp.task('sass', function() {
+	return gulp.src('site/scss/*.scss')
+	.pipe(sass())
+	.pipe(gulp.dest('site/css'));
+});
