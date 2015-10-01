@@ -1,15 +1,12 @@
 var gulp = require('gulp');
 
-var jshint = require('gulp-jshint');
-var sass = require('gulp-sass');
-var imagemin = require('gulp-imagemin');
-var browserify = require('browserify');
-var uglify = require('gulp-uglify');
-var minifyHTML = require('gulp-minify-html');
 var concat = require('gulp-concat');
+var minifyHTML = require('gulp-minify-html');
+var imagemin = require('gulp-imagemin');
+var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
+var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 
 // JavaScript linting task
 gulp.task('jshint', function() {
@@ -25,6 +22,35 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('site/css'));
 });
 
+// Minify index
+gulp.task('html', function() {
+  return gulp.src('site/index.html')
+    .pipe(minifyHTML())
+    .pipe(gulp.dest('build/'));
+});
+
+// JavaScript build task, removes whitespace and concatenates all files
+gulp.task('scripts', function() {
+  return gulp.src('site/js/*.js')
+    .pipe(concat('app.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js'));
+});
+
+// Styles build task, concatenates all the files
+gulp.task('styles', function() {
+  return gulp.src('site/css/*.css')
+    .pipe(concat('styles.css'))
+    .pipe(gulp.dest('build/css'));
+});
+
+// Image optimization task
+gulp.task('images', function() {
+  return gulp.src('site/img/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('build/img'));
+});
+
 // Watch task
 gulp.task('watch', function() {
   gulp.watch('site/js/*.js', ['jshint']);
@@ -34,41 +60,8 @@ gulp.task('watch', function() {
 // Default task
 gulp.task('default', ['jshint', 'sass', 'watch']);
 
-// Minify index
-gulp.task('html', function() {
-  gulp.src('site/index.html')
-    .pipe(minifyHTML())
-    .pipe(gulp.dest('build/'));
-});
-
-// JavaScript build task, removes whitespace and concatenates all files
-gulp.task('scripts', function() {
-  return browserify('./site/js/main.js')
-    .bundle()
-    .pipe(source('app.js'))
-    .pipe(buffer())
-    .pipe(uglify())
-    .pipe(gulp.dest('build/js'));
-});
-
-//Styles build task, concatenates all the files
-gulp.task('styles', function() {
-  gulp.src('site/css/*.css')
-    .pipe(concat('styles.css'))
-    .pipe(gulp.dest('build/css'));
-});
-
-//Image optimization task
-gulp.task('images', function() {
-  gulp.src('site/img/*.images')
-  .pipe(imagemin())
-  .pipe(gulp.dest('build/img'));
-});
-
-//Build task
+// Build task
 gulp.task('build', ['jshint', 'sass', 'html', 'scripts', 'styles', 'images']);
-
-
 
 
 
