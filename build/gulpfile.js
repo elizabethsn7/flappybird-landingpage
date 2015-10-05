@@ -2,6 +2,7 @@ var gulp = require('gulp');
 
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
+var cssmin = require('gulp-cssmin');
 var bower = require('gulp-bower');
 var imagemin = require('gulp-imagemin');
 var browserify = require('browserify');
@@ -74,14 +75,15 @@ gulp.task('scripts', function() {
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest('build/js'));
+    .pipe(gulp.dest('../site/js/'));
 });
 
 //Styles build task, concatenates all the files
 gulp.task('styles', function() {
   gulp.src('../site/css/*.css')
-    .pipe(concat('styles.css'))
-    .pipe(gulp.dest('build/css'));
+    .pipe(concat('app.css'))
+    .pipe(cssmin())
+    .pipe(gulp.dest('../site/css'));
 });
 
 //Image optimization task
