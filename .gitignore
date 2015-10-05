@@ -1,1 +1,6 @@
 node_modules
+bower_components
+.sass-cache
+build/scss/bourbon
+build/scss/neat
+build/scss/base/normalize.css
