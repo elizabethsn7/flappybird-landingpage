@@ -80,7 +80,7 @@ gulp.task('scripts', function() {
 
 //Styles build task, concatenates all the files
 gulp.task('styles', function() {
-  gulp.src('../site/css/*.css')
+  gulp.src(['../site/css/*.css','!../site/css/app.css'])
     .pipe(concat('app.css'))
     .pipe(cssmin())
     .pipe(gulp.dest('../site/css'));
