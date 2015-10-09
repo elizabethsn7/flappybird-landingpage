@@ -1,0 +1,24 @@
+{
+  "name": "flappybird",
+  "version": "0.0.0",
+  "homepage": "https://github.com/elizabethsn7/flappybird-landingpage",
+  "authors": [
+    "Elizabeth Kipp <liz@elizabethkipp.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bourbon": "~4.2.5",
+    "neat": "~1.7.2"
+  }
+}
