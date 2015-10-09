@@ -1,35 +1,43 @@
+@import "base/normalize";
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
+
+
 $font-color: #232323;
 $link-color: #1d5192;
 $hover-link-color: #6095D7;
-$background-color: #73ced3;
+$background-color: #ececec; 
 
 $sans-serif-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $serif-font: Georgia, Times, 'Times New Roman', serif;
-
-
-
 body {
 	color: $font-color;
-	background-color: $background-color;
+	background-color: #0099cc;
 	font-family: $sans-serif-font;
+	@media screen and (min-width: 640px) {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
 }
 nav {
   width: 100%;
   background-color: $background-color;
+}
   ul {
     float: right;  
   }
+  
   li {
     width: 10%;
+    color: $font-color;
   }
   a {
     color: $link-color;
+    text-align: center;
     &:hover {
     	color: $hover-link-color;
     }
-    text-align: center;
-  	
   }
 }
-
-
+}
