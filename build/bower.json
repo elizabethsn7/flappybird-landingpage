@@ -1,6 +1,7 @@
 {
   "name": "flappybird-landingpage",
   "version": "0.0.0",
+
   "homepage": "https://github.com/elizabethsn7/flappybird-landingpage",
   "authors": [
     "Elizabeth Kipp <liz@elizabethkipp.com>"
@@ -8,6 +9,12 @@
   "description": "",
   "main": "",
   "moduleType": [],
+
+  "homepage": "https://github.com/jpdevries/flappybird-landingpage",
+  "authors": [
+    "JP DeVries <johnpaul.devries@gmail.com>"
+  ],
+
   "license": "MIT",
   "private": true,
   "ignore": [
@@ -17,6 +24,7 @@
     "test",
     "tests"
   ],
+
   "devDependencies": {
     "bourbon": "~4.2.5",
     "neat": "~1.7.2"
@@ -24,6 +32,11 @@
   "dependencies": {
     "normalize.css": "~3.0.3",
     "normalize-css": "normalize.css#~3.0.3"
+
+  "dependencies": {
+    "neat": "~1.7.2",
+    "normalize.css": "~3.0.3"
+
   },
   "exportsOverride": {
     "bourbon": {
