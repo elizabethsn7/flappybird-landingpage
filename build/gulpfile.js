@@ -17,7 +17,7 @@ var gulpsync = require('gulp-sync')(gulp);
 
 // JavaScript linting task
 gulp.task('jshint', function() {
-  return gulp.src('../site/js/*.js')
+  return gulp.src(['../site/js/*.js', '!../site/js/app-min.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
@@ -72,7 +72,7 @@ gulp.task('html', function() {
 gulp.task('scripts', function() {
   return browserify('../site/js/main.js')
     .bundle()
-    .pipe(source('app.js'))
+    .pipe(source('app-min.js'))
     .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest('../site/js/'));

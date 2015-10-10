@@ -713,3 +713,26 @@ table {
 td,
 th {
   padding: 0; }
+
+body {
+  color: #232323;
+  background-color: #0099cc;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  @media screen and (min-width: 640px) {
+    body {
+      width: 90%;
+      max-width: 960px;
+      margin: 0 auto; } }
+  body nav {
+    width: 100%;
+    background-color: #ececec; }
+  body ul {
+    float: right; }
+  body li {
+    width: 10%;
+    color: #232323; }
+  body a {
+    color: #1d5192;
+    text-align: center; }
+    body a:hover {
+      color: #6095D7; }
